@@ -13,9 +13,21 @@ apellido = tk.Label(root, text = "Apellido", font=("Agency FB", 24)).place(x= 37
 
 def confirmacion(): #Datos de prueba
     if entrada1.get() == "1234" and entrada2.get() == "Perez":
-        messagebox.showinfo("Vegas Airlines", "Bienvenido a Vegas Airlines!")
+        abrirventana()
     else:
         messagebox.showerror("Vegas Airlines", "Error, Codigo o Apellido indetectable en base de datos.")
+
+def abrirventana():
+    root.withdraw()
+    ventana = tk.Toplevel()
+    ventana.title("Vegas Airlines")
+    ventana.geometry("600x400")
+    marco2 = Frame(ventana)
+    marco2.config(width=600, height=400)
+    label2 = tk.Label(ventana, text= "Has ingresado correctamente al sistema", font=("Agency FB", 24))
+    label2.pack()
+    marco2.pack()
+    ventana.mainloop()
 
 entrada1 = StringVar()
 entrada2 = StringVar()
