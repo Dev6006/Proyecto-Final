@@ -6,7 +6,6 @@ root = tk.Tk()
 root.title("Vegas Airlines")
 marco = Frame()
 marco.config(width=600, height=400)
-marco.config(bg= "#E43A35")
 
 label = tk.Label(root, text = "Bienvenido a Vegas Airlines!")
 codigo = tk.Label(root, text = "Código", font=("Agency FB", 24)).place(x= 150, y= 100)
