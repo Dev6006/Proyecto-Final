@@ -24,10 +24,26 @@ def abrirventana():
     ventana.geometry("600x400")
     marco2 = Frame(ventana)
     marco2.config(width=600, height=400)
-    label2 = tk.Label(ventana, text= "Has ingresado correctamente al sistema", font=("Agency FB", 24))
+    label2 = tk.Label(ventana, text= "Vegas Airlines", font=("Agency FB", 24))
+    label3 = tk.Label(ventana, text= "Origen", font=("Agency FB", 20), bd= 3).place(x= 150, y= 100)
+    label4 = tk.Label(ventana, text= "Destino", font=("Agency FB", 20), bd= 3).place(x= 150, y= 250)
+    label5 = tk.Label(ventana, text= "Fecha", font=("Agency FB", 20), bd= 3).place(x= 420, y= 100)
+    label6 = tk.Label(ventana, text= "Personas", font=("Agency FB", 20), bd= 3).place(x= 400, y= 250)
+    opciones_origen = ttk.Combobox(ventana, values=["Bogota", "Cali", "Cartagena", "Medellin", "Santa Marta", "Tulua"]).place(x= 110, y= 150)
+    opciones_destino = ttk.Combobox(ventana, values=["Bogota", "Cali", "Cartagena", "Medellin", "Santa Marta", "Tulua"]).place(x= 110, y= 300)
+    entrada_fecha = StringVar()
+    entrada_personas = StringVar()
+    txtFecha = Entry(ventana, textvariable=entrada_fecha, bd= 3).place(x= 380, y= 150)
+    txtPersonas = Entry(ventana, textvariable=entrada_personas, bd= 3).place(x= 380, y= 300)
+    boton2 = ttk.Button(ventana, text= "Confirmar", command=abrirventana2).place(x= 265, y= 350)
+    
     label2.pack()
     marco2.pack()
     ventana.mainloop()
+
+def abrirventana2():
+    pass
+
 
 entrada1 = StringVar()
 entrada2 = StringVar()
