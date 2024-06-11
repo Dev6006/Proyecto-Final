@@ -50,24 +50,37 @@ def abrirventana2():
     ventana = tk.Toplevel()
     ventana.title("Vegas Airlines")
     ventana.geometry("600x400")
-    ventana.config(bg= "Light Blue")
     marco3 = Frame(ventana)
-    titulo = tk.Label(ventana, text= "Asientos Disponibles", font=("Agency FB", 24), relief= SUNKEN).place(x= 200, y= 20)
-    Button(ventana).grid(row=0, column=0, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=1, column=0, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=2, column=0, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=0, column=1, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=1, column=1, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=2, column=1, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=0, column=2, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=1, column=2, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=2, column=2, ipadx=10, ipady=4, padx=3, pady=3)
-    Button(ventana).grid(row=0, column=5, ipadx=10, ipady=4, padx=40, pady=3)
-    Button(ventana).grid(row=1, column=5, ipadx=10, ipady=4, padx=40, pady=3)
-    Button(ventana).grid(row=2, column=5, ipadx=10, ipady=4, padx=40, pady=3)
+    titulo = tk.Label(ventana, text= "Asientos Disponibles", font=("Agency FB", 24), relief= SUNKEN).place(x= 300, y= 20)
+    sign = tk.Label(ventana, text= "}", font=("Agency FB", 90)).place(x= 190, y= -20)
+    for row in range(9):
+        for column in range(5):
+            Button(ventana, command= abrirventana3).grid(row=row, column=column, ipadx=10, ipady=4, padx=3, pady=3)
 
     marco3.pack()
     ventana.mainloop()
+
+def abrirventana3():
+    ventana2 = tk.Toplevel()
+    ventana2.title("Vegas Airlines")
+    ventana2.geometry("400x300")
+    marco4 = Frame(ventana2)
+    price = tk.Label(ventana2, text="Price: $100", font=("Agency FB", 20)).place(x=150, y=50)
+    tier = tk.Label(ventana2, text="Tier: Gold", font=("Agency FB", 20)).place(x=150, y=100)
+    button3 = ttk.Button(ventana2, text="Confirm", command=confirmacion2).place(x=170, y=150)
+
+    marco4.pack()
+    ventana2.mainloop()
+
+def confirmacion2():
+    messagebox.showinfo("Vegas Airlines", "Confirmation Successful!")
+
+entrada1 = StringVar()
+entrada2 = StringVar()
+txtCodigo = Entry(root, textvariable=entrada1, bd=3).place(x=125, y=150)
+txtCodigo2 = Entry(root, textvariable=entrada2, bd=3).place(x=355, y=150)
+boton = ttk.Button(text="Confirmar", command=confirmacion).place(x=265, y=200)
+boton2 = ttk.Button(text="Registrarse", command=registro).place(x=265, y=300)
 
 
 entrada1 = StringVar()
