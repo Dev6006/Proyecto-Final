@@ -1,0 +1,40 @@
+#Integrante 1: Juan Jose Cano Gonzalez - 202459645
+#Integrante 2: Gabriel Bernal Rodriguez - 202459766
+#Integrante 3: Jose Manuel Castaño Rojas - 202459522
+
+#Docente: Luis Germán Toro Pareja
+#Grupo 51
+import tkinter as tk
+from tkinter import ttk, messagebox
+from tkinter import *
+import csv
+import random
+import string
+
+def registrar():
+    nombre = entry_nombre.get()
+    apellido = entry_apellido.get()
+    genero = combo_genero.get()
+    documento = entry_documento.get()
+    fecha_nacimiento = entry_fecha_nacimiento.get()
+    celular = entry_celular.get()
+    nacionalidad = entry_nacionalidad.get()
+    correo = entry_correo.get()
+    necesita_asistencia = check_asistencia.get()
+    
+    with open('usuarios.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([nombre, apellido, genero, documento, fecha_nacimiento, celular, nacionalidad, correo, necesita_asistencia])
+    
+    mensaje_exito = "Usuario registrado exitosamente, puedes cerrar esta ventana"
+    label_mensaje.config(text=mensaje_exito)
+
+    entry_nombre.delete(0, tk.END)
+    entry_apellido.delete(0, tk.END)
+    combo_genero.set('')
+    entry_documento.delete(0, tk.END)
+    entry_fecha_nacimiento.delete(0, tk.END)
+    entry_celular.delete(0, tk.END)
+    entry_nacionalidad.delete(0, tk.END)
+    entry_correo.delete(0, tk.END)
+    check_asistencia.set(0)
