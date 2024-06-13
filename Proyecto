@@ -252,3 +252,22 @@ class AerolineaApp:
 
             btn_confirmar_beneficios = ttk.Button(self.ventana_beneficios, text="Confirmar", command=self.confirmar_categoria)
             btn_confirmar_beneficios.pack(pady=10)
+
+    def confirmar_categoria(self):
+        messagebox.showinfo("Confirmación", "¡Has confirmado tu selección!")
+        self.ventana_categoria.destroy()
+        self.ventana_beneficios.destroy()
+    
+    def asignar_asiento(self):
+        categoria_seleccionada = self.combo_categoria.get()
+        if categoria_seleccionada:
+            asiento = random.randint(1, 100)
+            messagebox.showinfo("Asiento Asignado", f"Se te ha asignado el asiento {asiento} en la categoría {categoria_seleccionada}.")
+
+            self.ventana_categoria.destroy()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AerolineaApp(root)
+    app.populate_treeview()
+    root.mainloop()
