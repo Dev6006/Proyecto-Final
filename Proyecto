@@ -213,5 +213,24 @@ class AerolineaApp:
 ['V560', '2024-06-26', '08:41:00', '11:20:00', 118816, 675485, 2104917, 'Santa Marta', 'Cali']
         ]
 
-        self.btn_seleccionar_vuelo = ttk.Button(self.master, text="Seleccionar Vuelo", command=self.seleccionar_vuelo)
-        self.btn_seleccionar_vuelo.pack(pady=10)
+        for flight in flights_data:
+            self.tree_vuelos.insert("", "end", values=flight)
+    
+    def seleccionar_vuelo(self):
+        seleccionado = self.tree_vuelos.focus()
+        if seleccionado:
+            vuelo = self.tree_vuelos.item(seleccionado)["values"]
+            messagebox.showinfo("Vuelo Seleccionado", f"Has seleccionado el vuelo con código de referencia: {vuelo[0]} para la fecha {vuelo[1]}.")
+
+            self.ventana_categoria = tk.Toplevel(self.master)
+            self.ventana_categoria.title("Seleccionar Categoría")
+
+            lbl_categoria = ttk.Label(self.ventana_categoria, text="Selecciona una categoría:")
+            lbl_categoria.pack(pady=(10, 5))
+
+            opciones_categoria = ["Aluminio", "Diamante", "Premium"]
+            self.combo_categoria = ttk.Combobox(self.ventana_categoria, values=opciones_categoria, state="readonly")
+            self.combo_categoria.pack(pady=5)
+
+            btn_confirmar_categoria = ttk.Button(self.ventana_categoria, text="Confirmar", command=self.mostrar_beneficios_categoria)
+            btn_confirmar_categoria.pack(pady=10)
