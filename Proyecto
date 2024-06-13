@@ -4,9 +4,9 @@
 
 #Docente: Luis Germán Toro Pareja
 #Grupo 51
+
 import tkinter as tk
 from tkinter import ttk, messagebox
-from tkinter import *
 import csv
 import random
 import string
@@ -38,3 +38,51 @@ def registrar():
     entry_nacionalidad.delete(0, tk.END)
     entry_correo.delete(0, tk.END)
     check_asistencia.set(0)
+
+root = tk.Tk()
+root.title("Registro de Usuario")
+
+marco = ttk.Frame(root, padding="20")
+marco.grid(row=0, column=0)
+
+ttk.Label(marco, text="Nombre:").grid(row=0, column=0, sticky="W")
+entry_nombre = ttk.Entry(marco, width=30)
+entry_nombre.grid(row=0, column=1)
+
+ttk.Label(marco, text="Apellido:").grid(row=1, column=0, sticky="W")
+entry_apellido = ttk.Entry(marco, width=30)
+entry_apellido.grid(row=1, column=1)
+
+ttk.Label(marco, text="Género:").grid(row=2, column=0, sticky="W")
+combo_genero = ttk.Combobox(marco, values=["Masculino", "Femenino", "Otro"])
+combo_genero.grid(row=2, column=1)
+combo_genero.set('')
+
+ttk.Label(marco, text="Documento de Identidad:").grid(row=3, column=0, sticky="W")
+entry_documento = ttk.Entry(marco, width=30)
+entry_documento.grid(row=3, column=1)
+
+ttk.Label(marco, text="Fecha de Nacimiento:").grid(row=4, column=0, sticky="W")
+entry_fecha_nacimiento = ttk.Entry(marco, width=30)
+entry_fecha_nacimiento.grid(row=4, column=1)
+
+ttk.Label(marco, text="Número de Celular:").grid(row=5, column=0, sticky="W")
+entry_celular = ttk.Entry(marco, width=30)
+entry_celular.grid(row=5, column=1)
+
+ttk.Label(marco, text="Nacionalidad:").grid(row=6, column=0, sticky="W")
+entry_nacionalidad = ttk.Entry(marco, width=30)
+entry_nacionalidad.grid(row=6, column=1)
+
+ttk.Label(marco, text="Correo Electrónico:").grid(row=7, column=0, sticky="W")
+entry_correo = ttk.Entry(marco, width=30)
+entry_correo.grid(row=7, column=1)
+
+check_asistencia = tk.IntVar()
+ttk.Checkbutton(marco, text="¿Necesita asistencia en el viaje?", variable=check_asistencia).grid(row=8, columnspan=2)
+
+btn_registrar = ttk.Button(marco, text="Registrar", command=registrar)
+btn_registrar.grid(row=9, columnspan=2)
+
+label_mensaje = ttk.Label(marco, text="")
+label_mensaje.grid(row=10, columnspan=2)
