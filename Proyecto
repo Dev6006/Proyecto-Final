@@ -86,3 +86,25 @@ btn_registrar.grid(row=9, columnspan=2)
 
 label_mensaje = ttk.Label(marco, text="")
 label_mensaje.grid(row=10, columnspan=2)
+
+root.mainloop()
+
+class AerolineaApp:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Aerolínea Cano")
+
+        self.tree_vuelos = ttk.Treeview(self.master, columns=("Vuelo", "Fecha", "H. Salida", "H. Llegada", "V. Minimo", "V. Medio", "V. Maximo", "C. Origen", "C. Destino"), show="headings")
+        self.tree_vuelos.heading("Vuelo", text="Vuelo")
+        self.tree_vuelos.heading("Fecha", text="Fecha")
+        self.tree_vuelos.heading("H. Salida", text="H. Salida")
+        self.tree_vuelos.heading("H. Llegada", text="H. Llegada")
+        self.tree_vuelos.heading("V. Minimo", text="V. Minimo")
+        self.tree_vuelos.heading("V. Medio", text="V. Medio")
+        self.tree_vuelos.heading("V. Maximo", text="V. Maximo")
+        self.tree_vuelos.heading("C. Origen", text="C. Origen")
+        self.tree_vuelos.heading("C. Destino", text="C. Destino")
+        self.tree_vuelos.pack(expand=True, fill="both")
+
+        self.btn_seleccionar_vuelo = ttk.Button(self.master, text="Seleccionar Vuelo", command=self.seleccionar_vuelo)
+        self.btn_seleccionar_vuelo.pack(pady=10)
