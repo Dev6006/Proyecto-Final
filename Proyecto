@@ -234,3 +234,21 @@ class AerolineaApp:
 
             btn_confirmar_categoria = ttk.Button(self.ventana_categoria, text="Confirmar", command=self.mostrar_beneficios_categoria)
             btn_confirmar_categoria.pack(pady=10)
+    
+    def mostrar_beneficios_categoria(self):
+        categoria_seleccionada = self.combo_categoria.get()
+        if categoria_seleccionada:
+            beneficios = {
+                "Aluminio": "1 artículo personal (bolso) (Debe caber debajo del asiento)\n1 equipaje de mano (10 kg) (Desde $195.100 COP)\nEquipaje de bodega (23 kg) (Desde $175.600 COP)\nAsiento Economy (Aleatoria-clasificado Aluminio)\nCambios de vuelo (No es permitido)\nReembolso (No es permitido)",
+                "Diamante": "1 artículo personal (bolso) (Debe caber debajo del asiento)\n1 equipaje de bodega (23 kg) (Debe caber en el compartimiento superior)\n1 equipaje de mano (10 kg) (Entrega el equipaje en el counter)\nAsiento Economy (Filas específicas disponibles de manera aleatoria)\nCambios de vuelo (No es permitido)\nReembolso (No es permitido)",
+                "Premium": "1 artículo personal (bolso) (Debe caber debajo del asiento)\n1 equipaje de mano (10 kg) (Debe caber en el compartimiento superior)\n1 equipaje de bodega (23 kg) (Entrega el equipaje en el counter)\nAsiento Plus (Sujeto a disponibilidad-clasificado Premium)\nCambios de vuelo (Sin cargo por cambio, antes del vuelo)\nReembolso (No es permitido)"
+            }
+
+            self.ventana_beneficios = tk.Toplevel(self.ventana_categoria)
+            self.ventana_beneficios.title("Beneficios de Categoría")
+
+            lbl_beneficios = ttk.Label(self.ventana_beneficios, text=f"Beneficios de la categoría {categoria_seleccionada}:\n{beneficios[categoria_seleccionada]}")
+            lbl_beneficios.pack(pady=10)
+
+            btn_confirmar_beneficios = ttk.Button(self.ventana_beneficios, text="Confirmar", command=self.confirmar_categoria)
+            btn_confirmar_beneficios.pack(pady=10)
